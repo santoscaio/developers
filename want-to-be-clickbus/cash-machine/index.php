@@ -1,5 +1,6 @@
 <?php
 $verMensagem = false;
+$mensagem = null;
 if ($_POST) {
     $valor = trim($_POST['valor']);
     $verMensagem = true;
@@ -24,7 +25,6 @@ if ($_POST) {
     <body>
         <form id="saque" method="post">
             <br />
-            <br />
             <label>
             Entre com o valor:
             <br />
@@ -37,13 +37,10 @@ if ($_POST) {
         <br />
         <br />
         <br />
-        <p>
-            Entrada: <?php echo $valor; ?>
-            <br />
-            Resultado: <?php echo $mensagem; ?>
-        </p>
         <?php
-        
+            if (!is_null($mensagem)) {
+                echo '<p>Entrada: ' . $valor . '<br />Resultado: ' . $mensagem . '</p>';
+            }
         ?>
     </body>
 </html>
